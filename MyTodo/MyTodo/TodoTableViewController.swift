@@ -24,7 +24,6 @@ class TodoTableViewController: UITableViewController {
         loadItems()
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named:"kraft.jpeg")!)
     }
 
     // MARK: - Table view data source

@@ -16,7 +16,6 @@
 		67254D8B272D7A2F00AB8E59 /* TodoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67254D8A272D7A2F00AB8E59 /* TodoTableViewCell.swift */; };
 		67254D8E272D7D2D00AB8E59 /* TodoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67254D8D272D7D2D00AB8E59 /* TodoItem.swift */; };
 		67254D91272D9B2200AB8E59 /* ItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67254D90272D9B2200AB8E59 /* ItemViewController.swift */; };
-		67DF6CCC272EB2C900B980AF /* kraft.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 67DF6CCB272EB2C900B980AF /* kraft.jpeg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +30,6 @@
 		67254D8A272D7A2F00AB8E59 /* TodoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoTableViewCell.swift; sourceTree = "<group>"; };
 		67254D8D272D7D2D00AB8E59 /* TodoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItem.swift; sourceTree = "<group>"; };
 		67254D90272D9B2200AB8E59 /* ItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewController.swift; sourceTree = "<group>"; };
-		67DF6CCB272EB2C900B980AF /* kraft.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = kraft.jpeg; path = ../../../../../Downloads/kraft.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,7 +72,6 @@
 				67254D7A272D78C200AB8E59 /* Assets.xcassets */,
 				67254D7C272D78C200AB8E59 /* LaunchScreen.storyboard */,
 				67254D7F272D78C200AB8E59 /* Info.plist */,
-				67DF6CCB272EB2C900B980AF /* kraft.jpeg */,
 			);
 			path = MyTodo;
 			sourceTree = "<group>";
@@ -138,7 +135,6 @@
 			files = (
 				67254D7E272D78C200AB8E59 /* LaunchScreen.storyboard in Resources */,
 				67254D7B272D78C200AB8E59 /* Assets.xcassets in Resources */,
-				67DF6CCC272EB2C900B980AF /* kraft.jpeg in Resources */,
 				67254D79272D78C000AB8E59 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
