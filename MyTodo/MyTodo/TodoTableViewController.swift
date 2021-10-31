@@ -10,7 +10,8 @@ import UIKit
 class TodoTableViewController: UITableViewController {
     
     var items:[TodoItem] = []
-
+    @IBOutlet var myTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,6 +22,9 @@ class TodoTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         self.navigationController?.navigationBar.prefersLargeTitles = true
         loadItems()
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named:"kraft.jpeg")!)
     }
 
     // MARK: - Table view data source
@@ -52,12 +56,13 @@ class TodoTableViewController: UITableViewController {
         return cell
     }
     
-    
+
+    /*
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         items.remove(at: indexPath.row)
         self.tableView.deleteRows(at: [indexPath], with: .automatic)
     }
-    
+    */
 
     /*
     // Override to support conditional editing of the table view.
@@ -120,6 +125,62 @@ class TodoTableViewController: UITableViewController {
         }
     }
     
+    
+    
+    private func deleteTodoItem(indexPath: IndexPath) {
+        items.remove(at: indexPath.row)
+        self.tableView.deleteRows(at: [indexPath], with: .automatic)
+    }
+    
+    override func tableView(_ tableView: UITableView,
+                   leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        // ...
+        let action = UIContextualAction(style: .normal,
+                                        title: "Trash") { [weak self] (action, view, completionHandler) in
+            self?.deleteTodoItem(indexPath: indexPath)
+                                            completionHandler(true)
+        }
+        action.backgroundColor = .systemRed
+        return UISwipeActionsConfiguration(actions: [action])
+    }
+    
+    
+    override func tableView(_ tableView: UITableView,
+                       trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        // ...
+        // Archive action
+        let incomplete = UIContextualAction(style: .normal,
+                                         title: "Mark as Incomplete") { [weak self] (action, view, completionHandler) in
+                                            self?.markAsIncomplete(indexPath: indexPath)
+                                            completionHandler(true)
+        }
+        incomplete.backgroundColor = .systemRed
+
+        // Unread action
+        let complete = UIContextualAction(style: .normal,
+                                       title: "Mark as Complete") { [weak self] (action, view, completionHandler) in
+                                        self?.markAsComplete(indexPath: indexPath)
+                                        completionHandler(true)
+        }
+        complete.backgroundColor = .systemGreen
+
+        let configuration = UISwipeActionsConfiguration(actions: [incomplete, complete])
+
+        return configuration
+    }
+    
+
+    private func markAsIncomplete(indexPath: IndexPath) {
+        self.items[indexPath.row].isChecked = false
+        self.tableView.reloadData()
+    }
+
+
+    private func markAsComplete(indexPath: IndexPath) {
+        self.items[indexPath.row].isChecked = true
+        self.tableView.reloadData()
+    }
+    
 
 }
 
@@ -163,3 +224,4 @@ extension TodoTableViewController{
         }
     }
 }
+
